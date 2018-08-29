@@ -14,8 +14,8 @@ export class Schema extends Component<
     ISchemaProps & ISchemaStyleProps,
     ISchemaStates
 > {
-    constructor(props: ISchemaProps & ISchemaStyleProps, context: {}) {
-        super(props, context);
+    constructor(props: ISchemaProps & ISchemaStyleProps) {
+        super(props);
         this.state = Schema.getState(props);
     }
 
@@ -79,7 +79,7 @@ export class Schema extends Component<
     };
 }
 
-export default withStyles<keyof ISchemaStyles>({
+export default withStyles<keyof ISchemaStyles, {}>({
     paper: {
         backgroundColor: '#eeeeee'
     }

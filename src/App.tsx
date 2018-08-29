@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 
 const config: IFormConfig = {
     title: 'Test Form',
+    submit: 'create',
     schema: {
         type: 'object',
         properties: {
@@ -133,10 +134,8 @@ const config: IFormConfig = {
 import Schema from './Schema';
 
 export class App extends Component<IAppProps & IAppStyleProps, IAppStates> {
-    constructor(props: IAppProps & IAppStyleProps, context: {}) {
-        super(props, context);
-        this.state = { width: '100%', height: '100%', config };
-    }
+
+    state = { width: '100%', height: '100%', config };
 
     containers: Array<HTMLDivElement> = [];
 
@@ -257,7 +256,7 @@ export class App extends Component<IAppProps & IAppStyleProps, IAppStates> {
     };
 }
 
-export default withStyles<keyof IAppStyles>({
+export default withStyles<keyof IAppStyles, {}>({
     root: {
         display: 'flex',
         justifyContent: 'center',
