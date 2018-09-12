@@ -11,6 +11,8 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import createGenerateClassName from '@material-ui/core/styles/createGenerateClassName';
 
+import Switch from '@material-ui/core/Switch';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { IBootProps, IBootStates } from './types';
@@ -22,33 +24,45 @@ const jss = create(preset());
 
 const generateClassName = createGenerateClassName();
 
-export default class Boot extends Component<
-    IBootProps,
-    IBootStates
-> {
-    constructor(props: IBootProps, context: {}) {
-        super(props, context);
-    }
+export default class Boot extends Component<IBootProps, IBootStates> {
+  constructor(props: IBootProps) {
+    super(props);
+    this.state = { theme: props.theme };
+  }
 
-    public render(): ReactNode {
-        const { theme } = this.props;
-        return (
-            <JssProvider jss={jss} generateClassName={generateClassName}>
-                <MuiThemeProvider theme={this.getTheme(theme)}>
-                    <CssBaseline/>
-                    <App />
-                </MuiThemeProvider>
-            </JssProvider>
-        );
-    }
+  public render(): ReactNode {
+    const { theme } = this.state;
+    return (
+      <JssProvider jss={jss} generateClassName={generateClassName}>
+        <MuiThemeProvider theme={this.getTheme(theme)}>
+          <CssBaseline />
+          <Switch
+            color="default"
+            onChange={this.toggleTheme}
+            checked={theme === 'dark'}
+          />
+          <App />
+        </MuiThemeProvider>
+      </JssProvider>
+    );
+  }
 
-    private getTheme(theme: 'dark' | 'brown' | 'light'): Theme {
-        return createMuiTheme({
-            // palette: {
-            //   // primary: green,
-            //   // accent: red,
-            //   shades: theme || "light"
-            // }});
-        });
-    }
+  private toggleTheme = () => {
+    this.setState(({ theme }) => ({
+      theme: theme === 'light' ? 'dark' : 'light'
+    }));
+  };
+
+  private getTheme(theme: 'dark' | 'light'): Theme {
+    return createMuiTheme({
+      palette: {
+        type: theme
+      }
+      // palette: {
+      //   // primary: green,
+      //   // accent: red,
+      //   shades: theme || 'light'
+      // }});
+    });
+  }
 }
