@@ -1,6 +1,6 @@
 {
     "name": "react-mst-form-demo",
-    "version": "1.0.5",
+    "version": "1.0.9",
     "description": "react-mobx-state-tree-form-demo",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -27,7 +27,7 @@
         "mobx-state-tree": "2.2.0",
         "react": "16.4.2",
         "react-dom": "16.4.2",
-        "react-mst-form": "1.0.8",
+        "react-mst-form": "1.0.9",
         "tslib": "1.9.3"
     },
     "devDependencies": {

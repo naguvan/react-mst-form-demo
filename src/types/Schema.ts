@@ -1,19 +1,19 @@
-import { WithStyles } from '@material-ui/core';
+import { CSSProperties, WithStyles } from '@material-ui/core/styles/withStyles';
 import { IFormConfig } from 'react-mst-form';
 
 export interface ISchemaStyles {
-    paper: React.CSSProperties;
+  paper: CSSProperties;
 }
 
 export interface ISchemaStyleProps extends WithStyles<keyof ISchemaStyles> {}
 
 export interface ISchemaProps {
-    style?: React.CSSProperties;
-    className?: string;
-    config: IFormConfig;
-    onConfig(config: IFormConfig): void;
+  style?: CSSProperties;
+  className?: string;
+  config: IFormConfig;
+  onConfig(config: IFormConfig): void;
 }
 
 export interface ISchemaStates {
-    config: string;
+  config: string;
 }
