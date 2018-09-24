@@ -1,6 +1,6 @@
 {
     "name": "react-mst-form-demo",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "react-mobx-state-tree-form-demo",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -27,7 +27,7 @@
         "mobx-state-tree": "2.2.0",
         "react": "16.4.2",
         "react-dom": "16.4.2",
-        "react-mst-form": "1.0.9",
+        "react-mst-form": "1.0.10",
         "tslib": "1.9.3"
     },
     "devDependencies": {
@@ -75,6 +75,7 @@
     "scripts": {
         "prepare": "npm run lint && npm run test && npm run build",
         "lint": "tslint -p .",
+        "build": "npm run dev",
         "env": "cross-env NODE_ENV=production TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"}",
         "prod": "cross-env NODE_ENV=production TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} webpack --config webpack.config.ts --env.prod",
         "dev": "cross-env NODE_ENV=development TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} webpack --config webpack.config.ts",
